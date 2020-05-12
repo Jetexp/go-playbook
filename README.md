@@ -67,6 +67,8 @@ fmt.Println(drawRating(99)) // ★★★★★
 <details>
   <summary>Ответ может быть таким</summary>
   
+  Не считайте это идеальным решением, это просто пример. Так же если вы заметили можно сделать визуальные замечания кода выше, например   убрать скобки в условных конструкциях.
+  
   ```go
   func drawRatingReview(vote int) string {
 	fill := "★";
@@ -77,7 +79,9 @@ fmt.Println(drawRating(99)) // ★★★★★
 	for index, _ := range make([]int, 5, 5) {
 		star := fill
 
-		if vote < index * 20 {
+		if vote == 0 && index == 0 {
+			star = fill
+		} else if vote <= index * 20 {
 			star = empty
 		}
 
@@ -87,7 +91,6 @@ fmt.Println(drawRating(99)) // ★★★★★
 	return strings.Join(stars, "")
   }
   
- 
   fmt.Println(drawRatingReview(0))  // ★☆☆☆☆
   fmt.Println(drawRatingReview(1))  // ★☆☆☆☆
   fmt.Println(drawRatingReview(50)) // ★★★☆☆
