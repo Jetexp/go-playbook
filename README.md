@@ -87,7 +87,7 @@ fmt.Println(drawRating(99)) // ★★★★★
 	    return strings.Join(stars, "")
   }
   
-  fmt.Println(drawRatingReview(0))  // ★☆☆☆☆
+  	fmt.Println(drawRatingReview(0))  // ★☆☆☆☆
 	fmt.Println(drawRatingReview(1))  // ★☆☆☆☆
 	fmt.Println(drawRatingReview(50)) // ★★★☆☆
 	fmt.Println(drawRatingReview(99)) // ★★★★★
