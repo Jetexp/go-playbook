@@ -1,4 +1,8 @@
-# Go PlayBook
+<div align="center">
+  <img width="494" height="344" src="https://github.com/goavengers/go-playbook/blob/master/img/go-playbook.png">
+  <h1>Go PlayBook</h1>
+  <h5>Вместе мы разберемся!</h5>
+</div>
 
 ## Содержание
 
