@@ -20,7 +20,6 @@
     3. первые 3 разряда состоят только из нечетных цифр, а последние 3 разряда – только из четных цифр
 4. [Как поменять местами два значения переменных без третьей переменной?](#t4)
 5. [Как упаковать массив целых чисел?](#t5)
-6. [Как бы вы переписали/оптимизировали следующий код?](#t6)
 
 ### <a name="t1"></a> Являются ли два слова (предложения) анаграммой?
 
@@ -35,67 +34,3 @@
 ### <a name="t4"></a> Как поменять местами два значения переменных без третьей переменной?
 
 ### <a name="t5"></a> Как упаковать массив целых чисел?
-
-### <a name="t6"></a> Как бы вы переписали/оптимизировали следующий код?
-
-Что можно улучшить? Как бы вы переписали функцию drawRating при условии что на вход функции drawRating должна приходить переменная vote, содержащая значение от 0 до 100. Интересует именно логика реализации функции, не визуальное отображение звезд.
-
-```go
-func drawRating(vote int) string {
-	if (vote >= 0 && vote <= 20) {
-		return "★☆☆☆☆";
-	} else if (vote > 20 && vote <= 40) {
-		return "★★☆☆☆";
-	} else if (vote > 40 && vote <= 60) {
-		return "★★★☆☆";
-	} else if (vote > 60 && vote <= 80) {
-		return "★★★★☆";
-	} else if (vote > 80 && vote <= 100) {
-		return "★★★★★";
-	} else {
-		return "★☆☆☆☆"
-	}
-}
-
-// Проверка работы результата
-fmt.Println(drawRating(0))  // ★☆☆☆☆
-fmt.Println(drawRating(1))  // ★☆☆☆☆
-fmt.Println(drawRating(50)) // ★★★☆☆
-fmt.Println(drawRating(99)) // ★★★★★
-```
-
-<details>
-  <summary>Ответ может быть таким</summary>
-  
-  Не считайте это идеальным решением, это просто пример. Так же если вы заметили можно сделать визуальные замечания кода выше, например   убрать скобки в условных конструкциях.
-  
-  ```go
-  func drawRatingReview(vote int) string {
-	fill := "★";
-	empty := "☆";
-
-	stars := []string{}
-
-	for index, _ := range make([]int, 5, 5) {
-		star := fill
-
-		if vote == 0 && index == 0 {
-			star = fill
-		} else if vote <= index * 20 {
-			star = empty
-		}
-
-		stars = append(stars, star)
-	}
-
-	return strings.Join(stars, "")
-  }
-  
-  fmt.Println(drawRatingReview(0))  // ★☆☆☆☆
-  fmt.Println(drawRatingReview(1))  // ★☆☆☆☆
-  fmt.Println(drawRatingReview(50)) // ★★★☆☆
-  fmt.Println(drawRatingReview(99)) // ★★★★★
- 
-  ```
-  
-</details>
