@@ -69,28 +69,30 @@ fmt.Println(drawRating(99)) // ★★★★★
   
   ```go
   func drawRatingReview(vote int) string {
-	    fill := "★";
-	    empty := "☆";
+	fill := "★";
+	empty := "☆";
 
-	    stars := []string{}
+	stars := []string{}
 
-	    for index, _ := range make([]int, 5, 5) {
-		      star := fill
+	for index, _ := range make([]int, 5, 5) {
+		star := fill
 
-		      if vote < index * 20 {
-			        star = empty
-		      }
+		if vote < index * 20 {
+			star = empty
+		}
 
-		      stars = append(stars, star)
-	    }
+		stars = append(stars, star)
+	}
 
-	    return strings.Join(stars, "")
+	return strings.Join(stars, "")
   }
   
-  	fmt.Println(drawRatingReview(0))  // ★☆☆☆☆
-	fmt.Println(drawRatingReview(1))  // ★☆☆☆☆
-	fmt.Println(drawRatingReview(50)) // ★★★☆☆
-	fmt.Println(drawRatingReview(99)) // ★★★★★
+ 
+  fmt.Println(drawRatingReview(0))  // ★☆☆☆☆
+  fmt.Println(drawRatingReview(1))  // ★☆☆☆☆
+  fmt.Println(drawRatingReview(50)) // ★★★☆☆
+  fmt.Println(drawRatingReview(99)) // ★★★★★
+ 
   ```
   
 </details>
